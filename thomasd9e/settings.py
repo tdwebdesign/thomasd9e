@@ -36,6 +36,7 @@ SECURE_SSL_REDIRECT = True
 # Application definition
 
 INSTALLED_APPS = [
+    'sslserver',
     'accounts',
     'website',
     'django.contrib.admin',
