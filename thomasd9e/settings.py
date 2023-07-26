@@ -29,8 +29,9 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG')
 
-ALLOWED_HOSTS = ['thomasd9e.com', 'www.thomasd9e.com', '127.0.0.1']
+ALLOWED_HOSTS = ['thomasd9e.com', 'www.thomasd9e.com', '127.0.0.1', 'thomasd9e.uc.r.appspot.com']
 
+SECURE_SSL_REDIRECT = True
 
 # Application definition
 
@@ -53,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'thomasd9e.middleware.SecureMiddleware',
 ]
 
 ROOT_URLCONF = 'thomasd9e.urls'
