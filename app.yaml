@@ -12,5 +12,3 @@ automatic_scaling:
 handlers:
 - url: /.*
   script: auto
-
-secure: always
