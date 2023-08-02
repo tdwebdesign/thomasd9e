@@ -10,5 +10,7 @@ automatic_scaling:
   max_instances: 10
 
 handlers:
+- url: /static
+  static_dir: staticfiles
 - url: /.*
   script: auto

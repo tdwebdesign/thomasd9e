@@ -1,20 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Question Page</title>
+    <title>CFB Assistant</title>
+    {% load static %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Include htmx library -->
     <script src="https://unpkg.com/htmx.org/dist/htmx.min.js"></script>
+    <!-- Include your custom JavaScript and CSS -->
+    <script src="{% static 'website/cfb_assistant.js' %}" defer></script>
+    <link href="{% static 'website/cfb_assistant.css' %}" rel="stylesheet">
 </head>
-<body>
-    <h1>Ask a question:</h1>
-    <form hx-post="{% url 'process_question' %}" hx-target="#response">
-        {% csrf_token %}
-        <input type="text" name="question" placeholder="Type your question here" required>
-        <button type="submit">Submit</button>
-    </form>
-    <h2>Response:</h2>
-    <div id="response" hx-swap-oob="true">
-        <!-- Response will be updated here -->
-    </div>
+<body class="container">
+    <header>
+        <img src="{% static 'website/football_transparent.png' %}" alt="CFB Assistant">
+        <a href="/cfb_assistant"><strong>CFB</strong> Assistant</a>
+    </header>
+    <section id="explanation">
+        <p>CFB Assistant answers questions about the 2022 college football season. It uses semantic search to find articles that are most likely to contain the answers to your question. It then places that article into the context of a chatGPT API call and returns the response. This same approach can be used to create subject matter expert bots for any topic.</p>
+    </section>
+    <section id="question">
+        <h1>What do you want to know about the 2022 College Football season?</h1>
+        <form id="questionForm" hx-post="{% url 'process_question' %}" hx-target="#response" hx-indicator="#loading" onsubmit="showLoading()">
+            {% csrf_token %}
+            <textarea name="question" rows="1" placeholder="Type your question here" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+    <section id="answer">
+        <p>Answer:</p>
+        <div id="loading">
+            <img src="{% static 'website/loading.svg' %}" alt="Loading...">
+        </div>
+        <div id="response" hx-swap-oob="true" hx-trigger="after-swap">
+            <!-- Response will be updated here -->
+        </div>
+    </section> 
 </body>
 </html>
