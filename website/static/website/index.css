@@ -151,17 +151,3 @@ section > div p {
     font-size: 1.2rem;
 }
 
-
-/* Footer styles */
-
-/* Media Query for responsiveness */
-@media screen and (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        height: auto;
-    }
-
-    nav li {
-        margin: 10px 0;
-    }
-}
