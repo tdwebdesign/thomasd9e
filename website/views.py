@@ -19,10 +19,9 @@ def process_question(request):
         question = request.POST.get('question')
         response = generate_response(question, DF, print_message=False)
         return HttpResponse(response)
-
+    
 def cfb_assistant(request):
     return render(request, 'cfb_assistant.html')
-
 
 def generate_response(query, df, model="gpt-3.5-turbo", token_budget=3000, print_message=False):
     """

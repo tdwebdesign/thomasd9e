@@ -1,53 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to ThomasD9e.com</title>
+    {% load static %}
+    <title>Thomas D9e</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'website/index.css' %}">
 </head>
 <body>
     <header>
-        <h1>Welcome to ThomasD9e.com</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'cfb_assistant' %}">CFB Assistant</a></li>
+                <li><a href="https://github.com/tdwebdesign/thomasd9e">Github</a></li>
+                <li><a href="">Contact</a></li>
+            </ul>
+        </nav>
     </header>
-
-    <nav>
-        <!-- Add navigation links here if needed -->
-    </nav>
-
     <main>
-        <div class="section full-viewport bg-section-1">
-            <div class="section-text">
+        <section id="webApp">
+            <div>
                 <h2>Build Web Apps</h2>
                 <p>I have experience building web applications using Python and JavaScript, with frameworks such as Django and React. I am proficient in HTML and CSS, and have used Cloud services and CLI tools to deploy applications. Additionally, I have experience with source control, building backend and frontend components, writing APIs, and testing, as well as implementing Continuous Integration and Continuous Deployment (CI/CD) workflows.</p>
             </div>
-        </div>
-        <div class="section full-viewport bg-section-2">
-            <div class="section-text">
+        </section>
+        <section id="manageData">
+            <div>
                 <h2>Manage Data</h2>
                 <p>I have experience managing data, including data acquisition, cleaning, analysis, querying, modeling, and visualization. I am proficient in SQL, PostgreSQL, Big Query, and MySQL, as well as in Python tools such as Scrapy, Pandas, sklearn, matplotlib, and seaborn. I have experience in relational database design and have used UML to model data structures.</p>
             </div>
-        </div>
-        <div class="section full-viewport bg-section-3">
-            <div class="section-text">
+        </section>
+        <section id="leadTeam">
+            <div>
                 <h2>Lead a Team</h2>
                 <p>I have 10+ years of experience leading teams in production and operations, where I successfully managed diverse teams to distribute tens of millions of books to children in eastern North Carolina and Southern Virginia. I have extensive experience in guiding improvement projects, training employees, refining processes, coaching, mentoring, and promoting team members into greater roles. I am skilled in communication, project management, team building, and conflict resolution, and have completed Scholastic's Academy for Leadership Excellence program. In my transition to software, I have gained additional experience in different methodologies and achieved certifications in Project+, ITIL 4, and Certified Scrum Master.</p>
             </div>
-        </div>
-        <div class="section full-viewport bg-section-4">
-            <div class="section-text">
+        </section>
+        <section id="machineLearning">
+            <div>
                 <h2>Machine Learning</h2>
                 <p>I have a strong mathematical background that enables me to understand how machine learning algorithms work, and experience in getting and cleaning data, exploratory data analysis, feature engineering, model selection, hyperparameter tuning, and model evaluation. I am proficient in Python-based machine learning libraries such as Scikit-learn, TensorFlow, and Keras. I have experience with both supervised and unsupervised learning, and have applied machine learning techniques in natural language processing and computer vision applications.</p>
             </div>
-        </div>
-        <section>
-            <h2>About Us</h2>
-            <p>Welcome to our website! This is a basic index page for ThomasD9e.com.</p>
-            <a href="{% url 'cfb_assistant' %}">CFB Assistant</a>
         </section>
     </main>
-
-    <footer>
-        <p>&copy; 2023 ThomasD9e.com. All rights reserved.</p>
-    </footer>
 </body>
 </html>
+        
+
