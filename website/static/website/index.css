@@ -151,3 +151,23 @@ section > div p {
     font-size: 1 em;
 }
 
+/* Set styles for the footer */
+footer {
+    background-color: transparent; /* Set the background of the footer to be transparent */
+    position: fixed; /* Use relative positioning to control footer placement */
+    bottom: 0; /* Position the footer at the bottom of the viewport */
+    left: 0; /* Align the footer to the left */
+    right: 0; /* Align the footer to the right */
+    text-align: center; /* Center the text horizontally */
+    z-index: 100;
+}
+
+#footer-content {
+    background-color: rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 60px;
+    color: #fff;
+}
+

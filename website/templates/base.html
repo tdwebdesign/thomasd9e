@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{% static 'website/favicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'website/index.css' %}">
+    <title>{% block title %}Your Website Title{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'cfb_assistant' %}">Projects</a></li>
+                <li><a href="https://github.com/tdwebdesign/thomasd9e">Github</a></li>
+                <li><a href="">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <div id="footer-content">
+            <p>© 2023 ThomasD9e.com</p>
+        </div>
+    </footer>
+</body>
+</html>
