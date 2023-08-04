@@ -10,13 +10,22 @@
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="{% url 'index' %}">Home</a></li>
-                <li><a href="{% url 'cfb_assistant' %}">Projects</a></li>
-                <li><a href="https://github.com/tdwebdesign/thomasd9e">Github</a></li>
-                <li><a href="">Contact</a></li>
-            </ul>
+        <nav class="navbar">
+            <div class="navbar-left">
+                <a href="{% url 'index' %}" class="navbar-home">
+                    <img src="{% static 'website/home.png' %}" alt="Home Image" class="home-image">
+                </a>
+            </div>
+            <div class="navbar-center">
+                <a href="" class="navbar-link">Skills</a>
+                <a href="" class="navbar-link">Projects</a>
+                <a href="" class="navbar-link">Contact</a>
+            </div>
+            <div class="navbar-right">
+                <a href="" class="navbar-profile">
+                    <img src="{% static 'website/profile.png' %}" alt="User Image" class="user-image">
+                </a>
+            </div>
         </nav>
     </header>
 
@@ -26,7 +35,15 @@
 
     <footer>
         <div id="footer-content">
-            <p>© 2023 ThomasD9e.com</p>
+            <div class="footer-left">
+                <a href="" class="footer-link">Github</a>
+            </div>
+            <div class="footer-center">
+                <p>© 2023 ThomasD9e.com</p>
+            </div>
+            <div class="footer-right">
+                <a href="" class="footer-link">Resume</a>
+            </div>
         </div>
     </footer>
 </body>
