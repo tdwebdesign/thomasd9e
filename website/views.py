@@ -17,8 +17,15 @@ def index(request):
 def process_question(request):
     if request.method == 'POST':
         question = request.POST.get('question')
-        response = generate_response(question, DF, print_message=False)
-        return HttpResponse(response)
+        if question:
+            response = generate_response(question, DF, print_message=False)
+            return HttpResponse(response)
+        else:
+            # If question is empty, handle the error here
+            return HttpResponse("Error: Empty question.")
+    else:
+        # Handle GET requests
+        return HttpResponse("This endpoint only accepts POST requests.")
     
 def cfb_assistant(request):
     return render(request, 'cfb_assistant.html')
