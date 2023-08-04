@@ -48,6 +48,14 @@ Environmental variables are managed using the `dotenv` Python package. Apart fro
 
 Static files and media are served using a CDN. Use the `collectstatic` command to collect and serve the static files.
 
+## Testing
+
+This project uses Django's built-in test framework for testing purposes. You can easily run the tests using the following command:
+```bash
+python manage.py test
+```
+This command will discover and execute all the test cases in your Django application.
+
 ## How to Run
 
 To run the app locally, use the following command:
