@@ -142,12 +142,12 @@ section > div {
 
 section > div h2 {
     color: #fff;
-    font-size: 2.5rem;
+    font-size: 2 em;
     text-align: center; /* Center the h1 element */
 }
 
 section > div p {
     color: #fff;
-    font-size: 1.2rem;
+    font-size: 1 em;
 }
 
