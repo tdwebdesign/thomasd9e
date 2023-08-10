@@ -74,7 +74,7 @@ section {
 }
 
 #webApp {
-    background-image: url("/static/website/webapps.jpg");
+    background-image: url("https://storage.googleapis.com/thomasd9e.appspot.com/website/webapps.jpg");
     background-size: cover;
     background-position: center center;
 }
@@ -90,7 +90,7 @@ section {
 }
 
 #manageData {
-    background-image: url("/static/website/managedata.jpg");
+    background-image: url("https://storage.googleapis.com/thomasd9e.appspot.com/website/managedata.jpg");
     background-size: cover;
     background-position: center center;
 }
@@ -106,7 +106,7 @@ section {
 }
 
 #leadTeam {
-    background-image: url("/static/website/leadateam.jpg");
+    background-image: url("https://storage.googleapis.com/thomasd9e.appspot.com/website/leadateam.jpg");
     background-size: cover;
     background-position: center center;
 }
@@ -122,7 +122,7 @@ section {
 }
 
 #machineLearning {
-    background-image: url("/static/website/machinelearning.jpg");
+    background-image: url("https://storage.googleapis.com/thomasd9e.appspot.com/website/machinelearning.jpg");
     background-size: cover;
     background-position: center center;
 }

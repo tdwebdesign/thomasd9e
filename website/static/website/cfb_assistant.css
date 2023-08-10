@@ -38,7 +38,7 @@ header a {
 
 /* Page background image */
 body {
-    background-image: url('/static/website/kinnick-stadium.jpg');
+    background-image: url('https://storage.googleapis.com/thomasd9e.appspot.com/website/kinnick-stadium.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;

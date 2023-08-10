@@ -42,6 +42,7 @@ SECURE_SSL_REDIRECT = True
 # Application definition
 
 INSTALLED_APPS = [
+    "storages",
     "sslserver",
     "accounts",
     "website",
@@ -135,13 +136,21 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = "/static/"
+GS_BUCKET_NAME = 'thomasd9e.appspot.com'
+GS_PROJECT_ID = 'thomasd9e'
+GS_CREDENTIALS = os.getenv('GS_CREDENTIALS_PATH')
+
+STATIC_URL = 'https://storage.googleapis.com/{}/'.format(GS_BUCKET_NAME)
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "website", "static"),
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+
+# Use Google Cloud Storage for static files
+DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
