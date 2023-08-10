@@ -140,7 +140,8 @@ section {
 /* Text styles for sections */
 section > div {
     position: relative;
-    z-index: 1;
+    z-index: 1;    
+    justify-content: center;
     padding: 20px;
     max-width: 680px; /* Limit width to 680px on larger screens */
     margin: 0 auto; /* Center the text horizontally */
@@ -192,4 +193,86 @@ footer {
 
 .footer-link:hover {
     color: #0077b6;
+}
+
+.skill-card {
+    max-width: 300px;
+    margin: 20px;
+    padding: 10px;
+    background-color: #caf0f8;
+    border: 2px solid #00b4d8;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.skill-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.skill-title {
+    color: #0077b6;
+    margin: 10px 0;
+}
+
+.skill-description {
+    color: #000;
+    font-size: 14px;
+}
+
+.single-page {
+    box-sizing: border-box;
+    min-height: 100vh; /* Set a minimum height of 100vh */
+    background-color: #03045e;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 60px 0px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.single-page a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.skill-card-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow cards to wrap to the next line */
+    justify-content: space-between;
+}
+
+.skill-card-container a {
+    text-decoration: none;
+}
+
+.project-image {
+    width: 400px;
+    height: auto;
+    border-radius: 8px;
+    float: left;
+}
+
+.project-container {
+    padding: 20px;
+    max-width: 680px;
+}
+
+@media screen and (max-width: 768px) {
+    /* Adjust for smaller viewports */
+    .welcome {
+        min-height: auto; /* Remove the minimum height constraint */
+        height: auto; /* Allow the height to adjust based on content */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    /* Further adjust for even smaller viewports */
+    .skill-card {
+        flex-basis: calc(100% - 20px); /* One card per row */
+    }
 }

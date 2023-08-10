@@ -14,6 +14,19 @@ DF['embedding'] = DF['embedding'].apply(ast.literal_eval)
 def index(request):
     return render(request, 'index.html')
 
+def skills(request):
+    return render(request, 'skills.html')
+
+def projects(request):
+    return render(request, 'projects.html')
+
+def contact(request):
+    if request.method == 'POST':
+        # Handle POST requests here
+        return HttpResponse("POST request received.")
+    else:
+        return render(request, 'contact.html')
+
 def process_question(request):
     if request.method == 'POST':
         question = request.POST.get('question')

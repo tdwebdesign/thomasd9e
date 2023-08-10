@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Projects - ThomasD9e{% endblock %}
+
+{% block content %}
+<div class="single-page">
+    <h1>Projects</h1>
+    <a href="{% url 'cfb_assistant' %}">
+    <div class="project-container">
+        <img src="{% static 'website/CFB_Assistant_cropped.png' %}" alt="CFB Assistant" class="project-image">
+        <h2>CFB Assistant</h2>
+        <p>CFB Assistant is a web application that allows users to view and compare college football teams' statistics. It is built using Django and Bootstrap.</p>
+    </div>
+    </a>
+</div>
+{% endblock %}
