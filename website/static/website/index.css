@@ -255,6 +255,7 @@ footer {
     height: auto;
     border-radius: 8px;
     float: left;
+    padding: 20px;
 }
 
 .project-container {

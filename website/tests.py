@@ -1,6 +1,7 @@
 from django.test import TestCase, Client
 from .views import generate_response, DF
 
+
 class GenerateResponseTestCase(TestCase):
     def test_generate_response(self):
         # Test case 1: Check if the response is not empty
@@ -17,18 +18,23 @@ class GenerateResponseTestCase(TestCase):
         response = generate_response(query, DF)
         self.assertEqual(response, expected_response)
 
+
 class ViewsTestCase(TestCase):
     def setUp(self):
         self.client = Client()
 
     def test_process_question_view(self):
         # Test case for process_question view
-        response = self.client.post('/process_question/', {'question': 'Who won the egg bowl last year?'}, follow=True)
+        response = self.client.post(
+            "/process_question/",
+            {"question": "Who won the egg bowl last year?"},
+            follow=True,
+        )
         self.assertEqual(response.status_code, 200)
         # Add more assertions based on your expected behavior
 
     def test_index_view(self):
         # Test case for index view
-        response = self.client.get('/', follow=True)
+        response = self.client.get("/", follow=True)
         self.assertEqual(response.status_code, 200)
         # Add more assertions based on your expected behavior
