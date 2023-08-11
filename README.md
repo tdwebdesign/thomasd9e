@@ -1,6 +1,6 @@
 # Thomas deBlaquiere's Personal Portfolio Web App
 
-![Screenshot](screenshot.png)
+![Screenshot](https://storage.googleapis.com/thomasd9e.appspot.com/website/Portfolio.png)
 
 ## Project Description
 
