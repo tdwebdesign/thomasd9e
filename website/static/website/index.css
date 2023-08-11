@@ -250,8 +250,25 @@ footer {
     text-decoration: none;
 }
 
+.projects {
+    box-sizing: border-box;
+    min-height: 100vh; /* Set a minimum height of 100vh */
+    background-color: #03045e;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 60px 0px;
+    align-items: center;
+    justify-content: center;
+}
+
+.projects a {
+    text-decoration: none;
+    color: #fff;
+}
+
 .project-image {
-    width: 400px;
+    width: 300px;
     height: auto;
     border-radius: 8px;
     float: left;
@@ -260,7 +277,12 @@ footer {
 
 .project-container {
     padding: 20px;
-    max-width: 680px;
+    max-width: 700px;
+}
+
+.project-container h2 {
+    color: #fff;
+    text-align: center; /* Center the h2 element */
 }
 
 @media screen and (max-width: 768px) {
@@ -321,7 +343,6 @@ input[type="text"], input[type="email"], textarea {
     border-radius: 5px;
     font-size: 16px;
     color: #333;
-    placeholder: #aaa; /* Lighter font for placeholder */
 }
 
 button {

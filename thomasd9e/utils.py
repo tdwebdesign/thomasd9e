@@ -15,6 +15,6 @@ def download_service_account_key():
     blob = bucket.blob(blob_name)
     blob.download_to_filename(destination_file_name)
 
-    print(f"Downloaded {blob_name} from {bucket_name} to {destination_file_name}.")
+    ## print(f"Downloaded {blob_name} from {bucket_name} to {destination_file_name}.") # For debugging
 
     return destination_file_name
