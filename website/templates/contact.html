@@ -5,23 +5,40 @@
 {% block title %}Contact - ThomasD9e{% endblock %}
 
 {% block content %}
-<div class="single-page">
-    <h1>Contact</h1>
-    <form action="{% url 'contact' %}" method="post">
-        {% csrf_token %}
-        <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" class="form-control">
+
+<div class="contact-container">
+    <!-- Left Column -->
+    <div class="left-column">
+        <form action="your_form_submission_url" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="John Doe">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="john.doe@example.com">
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Your message here..."></textarea>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+        <div class="contact-info">
+            <p><strong>Phone:</strong> 919-961-4276</p>
+            <p><strong>Email:</strong> tdwebdesignmsu@yahoo.com</p>
+            <a href="https://www.linkedin.com/in/thomas-deblaquiere-794979120/" target="_blank" rel="noopener noreferrer">
+                <img src="{% static 'website/LinkedIn_logo.png' %}" alt="LinkedIn Logo" width="30" height="30">
+            </a>
         </div>
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" class="form-control">
-        </div>
-        <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" class="form-control"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    </div>
+
+    <!-- Right Column -->
+    <div class="right-column">
+        <h2>Let's Work Together!</h2>
+        <p>I'm open for contract or permanent positions. I'm also available to discuss projects and provide quotes. Reach out to me and let's get started!</p>
+    </div>
 </div>
+
 {% endblock %}

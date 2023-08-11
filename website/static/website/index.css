@@ -277,3 +277,75 @@ footer {
         flex-basis: calc(100% - 20px); /* One card per row */
     }
 }
+
+/* Set styles for the contact form */
+
+.contact-container {
+    display: flex;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    box-sizing: border-box;
+    min-height: 100vh; /* Set a minimum height of 100vh */
+    background-color: #03045e;
+}
+
+.left-column, .right-column {
+    flex: 1;
+    padding: 20px;
+}
+
+.left-column {
+    background-color: white;
+    color: black;
+}
+
+.right-column {
+    background-color: #0077b6; /* A lighter shade of dark blue */
+    color: white;
+}
+
+.form-group {
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="text"], input[type="email"], textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+    placeholder: #aaa; /* Lighter font for placeholder */
+}
+
+button {
+    padding: 10px 20px;
+    background-color: darkblue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contact-info {
+    margin-top: 20px;
+}
+
+/* Responsive styles */
+@media (max-width: 700px) {
+    .contact-container {
+        flex-direction: column-reverse; /* Stack right column on top */
+    }
+
+    .left-column, .right-column {
+        flex: none; /* Reset flex sizing */
+        width: 100%; /* Make each column take full width */
+    }
+}
+
