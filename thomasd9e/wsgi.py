@@ -11,6 +11,11 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
+from .utils import download_service_account_key
+
+# Download the service account key at startup
+download_service_account_key()
+
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "thomasd9e.settings")
 
 application = get_wsgi_application()

@@ -13,6 +13,9 @@ import os
 from dotenv import load_dotenv
 from pathlib import Path
 
+from .utils import download_service_account_key
+from google.oauth2.service_account import Credentials
+
 load_dotenv()
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
@@ -136,11 +139,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-GS_BUCKET_NAME = 'thomasd9e.appspot.com'
-GS_PROJECT_ID = 'thomasd9e'
-GS_CREDENTIALS = os.getenv('GS_CREDENTIALS_PATH')
+GS_BUCKET_NAME = "thomasd9e.appspot.com"
+GS_PROJECT_ID = "thomasd9e"
+# Load the credentials from the downloaded key
+GS_CREDENTIALS = Credentials.from_service_account_file(download_service_account_key())
 
-STATIC_URL = 'https://storage.googleapis.com/{}/'.format(GS_BUCKET_NAME)
+
+STATIC_URL = "https://storage.googleapis.com/{}/".format(GS_BUCKET_NAME)
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "website", "static"),
@@ -149,8 +154,8 @@ STATICFILES_DIRS = [
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 # Use Google Cloud Storage for static files
-DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
-STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+DEFAULT_FILE_STORAGE = "storages.backends.gcloud.GoogleCloudStorage"
+STATICFILES_STORAGE = "storages.backends.gcloud.GoogleCloudStorage"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
