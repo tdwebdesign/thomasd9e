@@ -314,6 +314,7 @@ footer {
 .left-column, .right-column {
     flex: 1;
     padding: 20px;
+    box-sizing: border-box;
 }
 
 .left-column {
@@ -370,3 +371,17 @@ button {
     }
 }
 
+/* Set styles for accounts app pages */
+
+.accounts-main {
+    box-sizing: border-box;
+    min-height: 100vh; /* Set a minimum height of 100vh */
+    background-color: #03045e;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 60px 0px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
