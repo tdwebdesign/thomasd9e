@@ -48,21 +48,6 @@ header {
     color: #0077b6;
 }
 
-.user-image,
-.home-image {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-}
-
-.user-image {
-    margin-left: 10px;
-}
-
-.home-image {
-    margin-right: 10px;
-}   
-
 /* Main content styles */
 main {
     height: 100vh;
