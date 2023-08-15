@@ -392,3 +392,17 @@ button {
     align-items: center;
     justify-content: center;
 }
+
+.error {
+    color: #D8000C;             /* Red color for the text */
+    background-color: #FFD2D2; /* Light red background */
+    border: 1px solid #D8000C; /* Red border */
+    padding: 5px;              /* Padding to give some space around the text */
+    margin-top: 5px;           /* Margin to separate the error from the input field */
+    border-radius: 4px;        /* Rounded corners */
+    font-size: 0.9em;          /* Slightly smaller font size */
+    display: inline-block;     /* To display it next to the input field */
+    max-width: 80%;            /* To ensure it doesn't stretch too wide */
+    overflow-wrap: break-word; /* To wrap long error messages */
+}
+

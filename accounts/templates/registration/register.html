@@ -1,20 +1,18 @@
 {% extends "base.html" %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Register - ThomasD9e{% endblock %}
 
 {% block content %}
 <div class="accounts-main">
     <h1>Register</h1>
     <p>Already have an account? <a href="{% url 'accounts:login' %}">Login</a></p>
 
-    <!-- Display form errors -->
-    {% if form.errors %}
+    <!-- Display non-field errors -->
+    {% if form.non_field_errors %}
         <div class="alert alert-danger">
             <ul>
-                {% for field, errors in form.errors.items %}
-                    {% for error in errors %}
-                        <li>{{ error }}</li>
-                    {% endfor %}
+                {% for error in form.non_field_errors %}
+                    <li>{{ error }}</li>
                 {% endfor %}
             </ul>
         </div>
@@ -22,17 +20,30 @@
 
     <form method="post" id="registrationForm">
         {% csrf_token %}
+        
         <label for="email">Email:</label>
         <input type="email" name="email" id="email" required>
+        {% if form.email.errors %}
+            <span class="field-error">{{ form.email.errors.as_text }}</span>
+        {% endif %}
         
         <label for="username">Username:</label>
         <input type="text" name="username" id="username" required>
+        {% if form.username.errors %}
+            <span class="field-error">{{ form.username.errors.as_text }}</span>
+        {% endif %}
         
         <label for="password1">Password:</label>
         <input type="password" name="password1" id="password1" required>
+        {% if form.password1.errors %}
+            <span class="field-error">{{ form.password1.errors.as_text }}</span>
+        {% endif %}
         
         <label for="password2">Confirm Password:</label>
         <input type="password" name="password2" id="password2" required>
+        {% if form.password2.errors %}
+            <span class="field-error">{{ form.password2.errors.as_text }}</span>
+        {% endif %}
         
         <input type="submit" value="Register" class="submitBtn">
     </form>

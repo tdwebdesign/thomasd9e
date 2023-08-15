@@ -1,21 +1,29 @@
 {% extends "base.html" %}
 
-{% block title %}Login{% endblock %}
+{% block title %}Login - ThomasD9e{% endblock %}
 
 {% block content %}
-{% if form.non_field_errors %}
-    <div class="error">
-        {{ form.non_field_errors }}
-    </div>
-{% endif %}
 <div class="accounts-main">
+    {% if form.non_field_errors %}
+        <div class="error">
+            {{ form.non_field_errors }}
+        </div>
+    {% endif %}
+    
     <form method="post" id="loginForm">
         {% csrf_token %}
+        
         <label for="username">Email:</label>
         <input type="email" name="username" id="username" required>
+        {% if form.username.errors %}
+            <span class="error">{{ form.username.errors.as_text }}</span>
+        {% endif %}
         
         <label for="password">Password:</label>
         <input type="password" name="password" id="password" required>
+        {% if form.password.errors %}
+            <span class="error">{{ form.password.errors.as_text }}</span>
+        {% endif %}
         
         <input type="submit" value="Login" class="submitBtn">
     </form>
