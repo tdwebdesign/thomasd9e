@@ -57,7 +57,7 @@ class RegisterView(View):
 
             # Log the user in
             login(request, user)
-            return redirect("home")  # Redirect to home or any other page
+            return redirect("index")  # Redirect to home or any other page
 
         return render(request, "registration/register.html", {"form": form})
 
@@ -73,7 +73,7 @@ class ActivateView(View):
             user.is_active = True
             user.save()
             login(request, user)
-            return redirect("home")
+            return redirect("index")
         else:
             return render(request, "registration/activation_invalid.html")
 
@@ -81,17 +81,27 @@ class ActivateView(View):
 class CustomPasswordChangeView(PasswordChangeView):
     form_class = PasswordChangeForm
     template_name = "registration/change_password.html"
-    success_url = reverse_lazy("home")
+    success_url = reverse_lazy("index")
 
 
 # You can use the built-in views for password reset, just override the templates as needed
 password_reset_done = PasswordResetDoneView.as_view()
 password_reset_complete = PasswordResetCompleteView.as_view()
-login = LoginView.as_view()
-logout = LogoutView.as_view()
+
 
 class CustomPasswordResetView(PasswordResetView):
-    success_url = reverse_lazy('accounts:password_reset_done')
+    success_url = reverse_lazy("accounts:password_reset_done")
+
 
 class CustomPasswordResetConfirmView(PasswordResetConfirmView):
-    success_url = reverse_lazy('accounts:password_reset_complete')
+    success_url = reverse_lazy("accounts:password_reset_complete")
+
+
+class CustomLoginView(LoginView):
+    def get_success_url(self):
+        return reverse_lazy("index")
+
+
+class CustomLogoutView(LogoutView):
+    def get_success_url(self):
+        return reverse_lazy("index")

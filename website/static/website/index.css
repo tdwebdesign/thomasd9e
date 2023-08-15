@@ -7,7 +7,7 @@ html, body {
 
 body {
     font-family: "Roboto", sans-serif;
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
 /* Header styles */
@@ -36,9 +36,9 @@ header {
     align-items: center;
 }
 
-.navbar-home,
-.navbar-profile,
 .navbar-link {
+    display: flex;
+    align-items: center;
     text-decoration: none;
     color: #fff;
     padding: 10px;
@@ -55,6 +55,13 @@ header {
     border-radius: 50%;
 }
 
+.user-image {
+    margin-left: 10px;
+}
+
+.home-image {
+    margin-right: 10px;
+}   
 
 /* Main content styles */
 main {

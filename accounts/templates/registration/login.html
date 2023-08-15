@@ -3,11 +3,16 @@
 {% block title %}Login{% endblock %}
 
 {% block content %}
+{% if form.non_field_errors %}
+    <div class="error">
+        {{ form.non_field_errors }}
+    </div>
+{% endif %}
 <div class="accounts-main">
     <form method="post" id="loginForm">
         {% csrf_token %}
-        <label for="email">Email:</label>
-        <input type="email" name="email" id="email" required>
+        <label for="username">Email:</label>
+        <input type="email" name="username" id="username" required>
         
         <label for="password">Password:</label>
         <input type="password" name="password" id="password" required>

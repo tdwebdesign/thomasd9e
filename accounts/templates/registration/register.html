@@ -6,6 +6,20 @@
 <div class="accounts-main">
     <h1>Register</h1>
     <p>Already have an account? <a href="{% url 'accounts:login' %}">Login</a></p>
+
+    <!-- Display form errors -->
+    {% if form.errors %}
+        <div class="alert alert-danger">
+            <ul>
+                {% for field, errors in form.errors.items %}
+                    {% for error in errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+
     <form method="post" id="registrationForm">
         {% csrf_token %}
         <label for="email">Email:</label>

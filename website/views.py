@@ -1,5 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+
 
 import ast
 import openai
@@ -49,6 +51,7 @@ def process_question(request):
         return HttpResponse("This endpoint only accepts POST requests.")
 
 
+@login_required
 def cfb_assistant(request):
     return render(request, "cfb_assistant.html")
 

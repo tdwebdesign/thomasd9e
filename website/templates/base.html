@@ -12,8 +12,9 @@
     <header>
         <nav class="navbar">
             <div class="navbar-left">
-                <a href="{% url 'index' %}" class="navbar-home">
+                <a href="{% url 'index' %}" class="navbar-link">
                     <img src="{% static 'website/home.png' %}" alt="Home Image" class="home-image">
+                    Home
                 </a>
             </div>
             <div class="navbar-center">
@@ -22,9 +23,17 @@
                 <a href="{% url 'contact' %}" class="navbar-link">Contact</a>
             </div>
             <div class="navbar-right">
-                <a href="{% url 'accounts:login' %}" class="navbar-profile">
-                    <img src="{% static 'website/profile.png' %}" alt="User Image" class="user-image">
-                </a>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'accounts:logout' %}" class="navbar-link">
+                        Logout
+                        <img src="{% static 'website/profile.png' %}" alt="User Image" class="user-image">
+                    </a>
+                {% else %}
+                    <a href="{% url 'accounts:login' %}" class="navbar-link">
+                        Login
+                        <img src="{% static 'website/profile.png' %}" alt="User Image" class="user-image">
+                    </a>
+                {% endif %}
             </div>
         </nav>
     </header>
