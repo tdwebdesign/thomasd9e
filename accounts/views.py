@@ -85,9 +85,13 @@ class CustomPasswordChangeView(PasswordChangeView):
 
 
 # You can use the built-in views for password reset, just override the templates as needed
-password_reset = PasswordResetView.as_view()
 password_reset_done = PasswordResetDoneView.as_view()
-password_reset_confirm = PasswordResetConfirmView.as_view()
 password_reset_complete = PasswordResetCompleteView.as_view()
 login = LoginView.as_view()
 logout = LogoutView.as_view()
+
+class CustomPasswordResetView(PasswordResetView):
+    success_url = reverse_lazy('accounts:password_reset_done')
+
+class CustomPasswordResetConfirmView(PasswordResetConfirmView):
+    success_url = reverse_lazy('accounts:password_reset_complete')

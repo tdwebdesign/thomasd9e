@@ -14,11 +14,11 @@ urlpatterns = [
         name="change_password",
     ),
     # Default Django names for password reset URLs
-    path("password_reset/", views.password_reset, name="password_reset"),
+    path("password_reset/", views.CustomPasswordResetView.as_view(), name="password_reset"),
     path("password_reset/done/", views.password_reset_done, name="password_reset_done"),
     path(
         "reset/<uidb64>/<token>/",
-        views.password_reset_confirm,
+        views.CustomPasswordResetConfirmView.as_view(),
         name="password_reset_confirm",
     ),
     path("reset/done/", views.password_reset_complete, name="password_reset_complete"),
