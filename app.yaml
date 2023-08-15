@@ -9,6 +9,9 @@ automatic_scaling:
   min_instances: 1
   max_instances: 10
 
+env_variables:
+  DEPLOYED: "True"
+
 handlers:
 - url: /static
   static_dir: staticfiles

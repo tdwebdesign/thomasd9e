@@ -93,13 +93,23 @@ WSGI_APPLICATION = "thomasd9e.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+# Check if the app is deployed or running locally
+DEPLOYED = os.getenv("DEPLOYED", "False") == "True"
+
+if DEPLOYED:
+    # Use the instance connection name for the deployed app
+    DB_HOST = os.getenv("CLOUD_HOST")
+else:
+    # Use the Public IP for local development
+    DB_HOST = os.getenv("DB_HOST")
+
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": os.getenv("DB_NAME"),
         "USER": os.getenv("DB_USER"),
         "PASSWORD": os.getenv("DB_PASSWORD"),
-        "HOST": os.getenv("DB_HOST"),
+        "HOST": DB_HOST,
         "PORT": os.getenv("DB_PORT"),
     }
 }
