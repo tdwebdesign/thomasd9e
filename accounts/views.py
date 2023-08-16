@@ -1,3 +1,7 @@
+# Python imports
+import logging
+
+# Django imports
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.views import (
     LoginView,
@@ -18,16 +22,17 @@ from django.core.mail import EmailMessage
 from django.shortcuts import render, redirect
 from django.views import View
 
+# Local imports
 from .models import CustomUser
-from .forms import (
-    CustomUserCreationForm,
-)  # Assuming you'll create a custom form for registration
-from .tokens import (
-    account_activation_token,
-)  # You'll need to create this for email confirmation
+from .forms import CustomUserCreationForm
+from .tokens import account_activation_token
+
+logger = logging.getLogger(__name__)
 
 
 class RegisterView(View):
+    """Handles user registration and sends an activation email."""
+
     def get(self, request):
         form = CustomUserCreationForm()
         return render(request, "registration/register.html", {"form": form})
@@ -36,7 +41,7 @@ class RegisterView(View):
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
-            user.is_active = False  # User will be inactive until email confirmation
+            user.is_active = False
             user.save()
 
             # Email confirmation logic
@@ -55,27 +60,38 @@ class RegisterView(View):
             email = EmailMessage(mail_subject, message, to=[to_email])
             email.send()
 
-            # Log the user in
-            login(request, user)
-            return redirect("index")  # Redirect to home or any other page
+            return redirect(
+                "email_confirmation_page"
+            )  # Redirect to a page instructing the user to check their email
 
         return render(request, "registration/register.html", {"form": form})
 
 
 class ActivateView(View):
+    """Handles user account activation via email link."""
+
     def get(self, request, uidb64, token):
         try:
             uid = force_str(urlsafe_base64_decode(uidb64))
             user = CustomUser.objects.get(pk=uid)
-        except (TypeError, ValueError, OverflowError, CustomUser.DoesNotExist):
+        except (TypeError, ValueError, OverflowError, CustomUser.DoesNotExist) as e:
+            logger.error(f"Error during account activation: {e}")
             user = None
-        if user is not None and account_activation_token.check_token(user, token):
+
+        if user and account_activation_token.check_token(user, token):
             user.is_active = True
             user.save()
             login(request, user)
             return redirect("index")
         else:
             return render(request, "registration/activation_invalid.html")
+
+
+class EmailConfirmationPageView(View):
+    """Renders a page instructing the user to check their email for an activation link."""
+
+    def get(self, request):
+        return render(request, "registration/email_confirmation_page.html")
 
 
 class CustomPasswordChangeView(PasswordChangeView):

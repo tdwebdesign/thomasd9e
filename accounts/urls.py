@@ -26,4 +26,9 @@ urlpatterns = [
         name="password_reset_confirm",
     ),
     path("reset/done/", views.password_reset_complete, name="password_reset_complete"),
+    path(
+        "email-confirmation/",
+        views.EmailConfirmationPageView.as_view(),
+        name="email_confirmation_page",
+    ),
 ]
