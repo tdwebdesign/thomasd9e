@@ -38,26 +38,27 @@ def projects(request):
 def contact(request):
     if request.method == "POST":
         # Retrieve form data
-        name = request.POST.get('name')
-        email = request.POST.get('email')
-        message_body = request.POST.get('message')
+        name = request.POST.get("name")
+        email = request.POST.get("email")
+        message_body = request.POST.get("message")
 
         # Construct the email message
         subject = f"New Contact Message from {name}"
         message = f"Name: {name}\nEmail: {email}\n\nMessage:\n{message_body}"
         from_email = email  # Use the sender's email as the "from" email
-        recipient_list = ['tdwebdesignmsu@yahoo.com']
+        recipient_list = ["tdwebdesignmsu@yahoo.com"]
 
         # Send the email
         try:
             send_mail(subject, message, from_email, recipient_list)
             messages.success(request, "Your message has been sent successfully!")
-            return HttpResponseRedirect(reverse('contact'))  # Redirect back to the contact page or wherever you want
+            return HttpResponseRedirect(
+                reverse("contact")
+            )  # Redirect back to the contact page or wherever you want
         except Exception as e:
             messages.error(request, f"Error sending email: {e}")
 
     return render(request, "contact.html")
-
 
 
 def process_question(request):

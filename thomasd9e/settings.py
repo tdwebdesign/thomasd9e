@@ -46,7 +46,7 @@ SECURE_SSL_REDIRECT = True
 # Application definition
 
 INSTALLED_APPS = [
-    'blog',
+    "blog",
     "ckeditor",
     "ckeditor_uploader",
     "storages",
