@@ -48,9 +48,39 @@ header {
     color: #0077b6;
 }
 
+/* Message styles */
+
+.messages-container {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-top: 60px;
+}
+
+.message {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.message.success {
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #3c763d;
+}
+
+.message.error {
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    color: #a94442;
+}
+
 /* Main content styles */
 main {
     height: 100vh;
+    padding: 0px 0px; /* Adjusted padding */
+    background-color: #03045e; /* Set background color */
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
 }
@@ -216,15 +246,15 @@ footer {
 
 .single-page {
     box-sizing: border-box;
-    min-height: 100vh; /* Set a minimum height of 100vh */
+    min-height: 100vh - 60px;
     background-color: #03045e;
     color: #fff;
     display: flex;
     flex-direction: column;
-    padding: 60px 0px;
     text-align: center;
     align-items: center;
     justify-content: center;
+    margin-top: 60px;
 }
 
 .single-page a {
@@ -249,7 +279,6 @@ footer {
     color: #fff;
     display: flex;
     flex-direction: column;
-    padding: 60px 0px;
     align-items: center;
     justify-content: center;
 }
@@ -296,11 +325,13 @@ footer {
 
 .contact-container {
     display: flex;
-    padding-top: 60px;
-    padding-bottom: 60px;
     box-sizing: border-box;
-    min-height: 100vh; /* Set a minimum height of 100vh */
+    min-height: 100vh - 60px; /* Set a minimum height of 100vh */
     background-color: #03045e;
+}
+
+main.no-messages .contact-container { /* give margin if no messages */
+    margin-top: 60px;
 }
 
 .left-column, .right-column {
@@ -372,7 +403,6 @@ button {
     color: #fff;
     display: flex;
     flex-direction: column;
-    padding: 60px 0px;
     text-align: center;
     align-items: center;
     justify-content: center;

@@ -29,7 +29,18 @@
         </nav>
     </header>
 
-    <main>
+    <main {% if not messages %}class="no-messages"{% endif %}>
+        <!-- Messages Block -->
+        {% if messages %}
+        <div class="messages-container">
+            {% for message in messages %}
+            <div {% if message.tags %}class="message {{ message.tags }}"{% endif %}>
+                {{ message }}
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
         {% block content %}{% endblock %}
     </main>
 
