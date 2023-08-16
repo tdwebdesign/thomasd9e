@@ -46,6 +46,9 @@ SECURE_SSL_REDIRECT = True
 # Application definition
 
 INSTALLED_APPS = [
+    'blog',
+    "ckeditor",
+    "ckeditor_uploader",
     "storages",
     "sslserver",
     "accounts",
@@ -170,8 +173,13 @@ GS_PROJECT_ID = "thomasd9e"
 # Load the credentials from the downloaded key
 GS_CREDENTIALS = Credentials.from_service_account_file(download_service_account_key())
 
+# Static file configuration
+STATIC_URL = "https://storage.googleapis.com/{}/static/".format(GS_BUCKET_NAME)
+STATICFILES_STORAGE = "storages.backends.gcloud.GoogleCloudStorage"
 
-STATIC_URL = "https://storage.googleapis.com/{}/".format(GS_BUCKET_NAME)
+# Media file configuration
+DEFAULT_FILE_STORAGE = "storages.backends.gcloud.GoogleCloudStorage"
+MEDIA_URL = "https://storage.googleapis.com/{}/media/".format(GS_BUCKET_NAME)
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "website", "static"),
@@ -179,9 +187,7 @@ STATICFILES_DIRS = [
 
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
-# Use Google Cloud Storage for static files
-DEFAULT_FILE_STORAGE = "storages.backends.gcloud.GoogleCloudStorage"
-STATICFILES_STORAGE = "storages.backends.gcloud.GoogleCloudStorage"
+CKEDITOR_UPLOAD_PATH = "uploads/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
