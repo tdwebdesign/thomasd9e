@@ -1,12 +1,12 @@
 {% autoescape off %}
-Hello {{ user.username }},
+<p>Hello {{ user.username }},</p>
 
-Thank you for registering at {{ domain }}. Please click the link below to activate your account:
+<p>Thank you for registering at {{ domain }}. Please click the link below to activate your account:</p>
 
-<a href="http://{{ domain }}{% url 'accounts:activate' uidb64=uid token=token %}">Activate your account</a>
+<p><a href="https://{{ domain }}{% url 'accounts:activate' uidb64=uid token=token %}">Activate your account</a></p>
 
-If you didn't register on our site, please ignore this email.
+<p>If you didn't register on our site, please ignore this email.</p>
 
-Thanks,
-The ThomasD9e Team
+<p>Thanks,<br>
+The ThomasD9e Team</p>
 {% endautoescape %}

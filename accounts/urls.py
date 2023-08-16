@@ -31,4 +31,9 @@ urlpatterns = [
         views.EmailConfirmationPageView.as_view(),
         name="email_confirmation_page",
     ),
+    path(
+        "resend-activation-email/",
+        views.ResendActivationEmailView.as_view(),
+        name="resend_activation_email",
+    ),
 ]

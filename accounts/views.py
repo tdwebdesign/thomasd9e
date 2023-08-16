@@ -18,13 +18,13 @@ from django.urls import reverse_lazy
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.template.loader import render_to_string
 from django.utils.encoding import force_bytes, force_str
-from django.core.mail import EmailMessage
+from django.core.mail import EmailMultiAlternatives
 from django.shortcuts import render, redirect
 from django.views import View
 
 # Local imports
 from .models import CustomUser
-from .forms import CustomUserCreationForm
+from .forms import CustomAuthenticationForm, CustomUserCreationForm
 from .tokens import account_activation_token
 
 logger = logging.getLogger(__name__)
@@ -57,11 +57,12 @@ class RegisterView(View):
                 },
             )
             to_email = form.cleaned_data.get("email")
-            email = EmailMessage(mail_subject, message, to=[to_email])
+            email = EmailMultiAlternatives(mail_subject, message, to=[to_email])
+            email.attach_alternative(message, "text/html")
             email.send()
 
             return redirect(
-                "email_confirmation_page"
+                "accounts:email_confirmation_page"
             )  # Redirect to a page instructing the user to check their email
 
         return render(request, "registration/register.html", {"form": form})
@@ -94,6 +95,36 @@ class EmailConfirmationPageView(View):
         return render(request, "registration/email_confirmation_page.html")
 
 
+class ResendActivationEmailView(View):
+    """Handles user request to resend an activation email."""
+
+    def get(self, request):
+        return render(request, "registration/resend_activation_email.html")
+
+    def post(self, request):
+        email = request.POST.get("email")
+        user = CustomUser.objects.filter(email=email, is_active=False).first()
+
+        if user:
+            # Email confirmation logic
+            current_site = get_current_site(request)
+            mail_subject = "Activate your account."
+            message = render_to_string(
+                "registration/activate_email.html",
+                {
+                    "user": user,
+                    "domain": current_site.domain,
+                    "uid": urlsafe_base64_encode(force_bytes(user.pk)),
+                    "token": account_activation_token.make_token(user),
+                },
+            )
+            email = EmailMultiAlternatives(mail_subject, message, to=[user.email])
+            email.attach_alternative(message, "text/html")
+            email.send()
+
+        return redirect("accounts:email_confirmation_page")
+
+
 class CustomPasswordChangeView(PasswordChangeView):
     form_class = PasswordChangeForm
     template_name = "registration/change_password.html"
@@ -114,6 +145,8 @@ class CustomPasswordResetConfirmView(PasswordResetConfirmView):
 
 
 class CustomLoginView(LoginView):
+    authentication_form = CustomAuthenticationForm
+
     def get_success_url(self):
         return reverse_lazy("index")
 
