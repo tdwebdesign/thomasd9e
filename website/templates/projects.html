@@ -14,5 +14,12 @@
             <p>CFB Assistant  demonstrates the integration of ChatGPT with a knowledge base to create a subject matter expert chatbot. CFB Assistant answers questions about the 2022 college football season. It uses semantic search to find articles that are most likely to contain the answers to your question. It then places that article into the context of a chatGPT API call and returns the response. This same approach can be used to create subject matter expert bots for any topic.</p>
         </div>
     </a>
+    <a href="{% url 'blog:post-list' %}">
+        <div class="project-container">
+            <img src="{% static 'website/blog_cropped.png' %}" alt="Blog" class="project-image">
+            <h2>Blog</h2>
+            <p>This blog is built using Django. It is a simple blog that allows users to create, edit, and delete posts. It also allows users to comment on posts. The blog is hosted on Heroku and uses AWS S3 for static files and media storage.</p>
+        </div>
+    </a>
 </div>
 {% endblock %}

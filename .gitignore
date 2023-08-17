@@ -11,3 +11,5 @@ media/
 
 # Ignore the .env file with sensitive information
 .env
+
+cors-config.json

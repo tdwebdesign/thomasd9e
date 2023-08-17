@@ -21,4 +21,5 @@ urlpatterns = [
     path(settings.SECRET_PATH + "/admin/", admin.site.urls),
     path("", include("website.urls")),
     path("accounts/", include("accounts.urls", namespace="accounts")),
+    path("blog/", include("blog.urls", namespace="blog")),
 ]
