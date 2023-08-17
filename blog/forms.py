@@ -8,7 +8,7 @@ class PostForm(forms.ModelForm):
         model = Post
         fields = ["title", "content", "post_status"]
         widgets = {
-            'slug': forms.TextInput(attrs={'readonly': 'readonly'}),
+            "slug": forms.TextInput(attrs={"readonly": "readonly"}),
         }
 
     # Using CKEditor for the content field

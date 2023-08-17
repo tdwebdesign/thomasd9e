@@ -29,7 +29,7 @@ class PostDetailView(DetailView):
         context["comments"] = Comment.objects.filter(post=self.object)
         context["form"] = CommentForm()
         return context
-    
+
     def post(self, request, *args, **kwargs):
         form = CommentForm(request.POST)
         if form.is_valid():
@@ -37,7 +37,7 @@ class PostDetailView(DetailView):
             comment.author = request.user
             comment.post = self.get_object()
             comment.save()
-            return redirect('blog:post-detail', slug=self.get_object().slug)
+            return redirect("blog:post-detail", slug=self.get_object().slug)
         return self.get(request, *args, **kwargs)
 
 

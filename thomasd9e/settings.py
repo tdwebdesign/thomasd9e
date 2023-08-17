@@ -32,7 +32,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("DEBUG") == 'True'
+DEBUG = os.getenv("DEBUG") == "True"
 
 ALLOWED_HOSTS = [
     "thomasd9e.com",
@@ -187,7 +187,9 @@ STATICFILES_DIRS = [
 
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
-CKEDITOR_BASEPATH = "https://storage.googleapis.com/thomasd9e.appspot.com/ckeditor/ckeditor/"
+CKEDITOR_BASEPATH = (
+    "https://storage.googleapis.com/thomasd9e.appspot.com/ckeditor/ckeditor/"
+)
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
 
