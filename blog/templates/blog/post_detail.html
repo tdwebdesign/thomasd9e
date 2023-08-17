@@ -1,0 +1,22 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+    <h1>{{ object.title }}</h1>
+    <p>By {{ object.author }} on {{ object.created_at }}</p>
+    <div>{{ object.content|safe }}</div>
+
+    <h2>Comments</h2>
+    {% for comment in comments %}
+        <div>
+            <strong>{{ comment.author }}</strong> said:
+            <p>{{ comment.content }}</p>
+        </div>
+    {% endfor %}
+
+    <h2>Add a Comment</h2>
+    <form method="post" action="{% url 'blog:post-detail' object.slug %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}
