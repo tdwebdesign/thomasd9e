@@ -36,4 +36,5 @@ urlpatterns = [
         views.ResendActivationEmailView.as_view(),
         name="resend_activation_email",
     ),
+    path("profile/", views.ProfileView.as_view(), name="profile"),
 ]

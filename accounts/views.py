@@ -154,3 +154,7 @@ class CustomLoginView(LoginView):
 class CustomLogoutView(LogoutView):
     def get_success_url(self):
         return reverse_lazy("index")
+    
+class ProfileView(View):
+    def get(self, request):
+        return render(request, "registration/profile.html")
