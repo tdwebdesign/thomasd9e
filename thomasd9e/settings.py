@@ -184,6 +184,7 @@ MEDIA_URL = "https://storage.googleapis.com/{}/media/".format(GS_BUCKET_NAME)
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "website", "static"),
+    os.path.join(BASE_DIR, "fantasy_news", "static"),
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")

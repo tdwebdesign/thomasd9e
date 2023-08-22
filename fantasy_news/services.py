@@ -2,9 +2,11 @@ import requests
 import json
 import pandas as pd
 import os
-
+from django.conf import settings
 
 class FantasyLeague:
+    PLAYERS_FILE_PATH = os.path.join(settings.BASE_DIR, 'fantasy_news', 'static', 'fantasy_news', 'players.json')
+
     def __init__(self, league_id):
         self.league_id = league_id
         self.check_and_fetch_players()
@@ -17,7 +19,8 @@ class FantasyLeague:
             zip(self.players_df["full_name"], self.players_df["player_id"])
         )
 
-    def load_players_from_file(self, filename="fantasy_news/players.json"):
+    def load_players_from_file(self, filename=None):
+        filename = filename or FantasyLeague.PLAYERS_FILE_PATH
         with open(filename, "r") as file:
             players = json.load(file)
         return pd.DataFrame(players).T
@@ -66,12 +69,16 @@ class FantasyLeague:
             return None
 
     @staticmethod
-    def save_players_to_file(players):
-        with open("fantasy_news/players.json", "w") as file:
+    def save_players_to_file(players, filename=None):
+        filename = filename or FantasyLeague.PLAYERS_FILE_PATH
+        directory = os.path.dirname(filename)
+        if not os.path.exists(directory):
+            os.makedirs(directory)
+        with open(filename, "w") as file:
             json.dump(players, file)
 
     def check_and_fetch_players(self):
-        if not os.path.exists("fantasy_news/players.json"):
+        if not os.path.exists(FantasyLeague.PLAYERS_FILE_PATH):
             players = FantasyLeague.fetch_players()
             if players:
                 FantasyLeague.save_players_to_file(players)
