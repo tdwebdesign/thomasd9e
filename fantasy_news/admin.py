@@ -34,18 +34,24 @@ def generate_prompt_template(owned_players, recap_body):
 def extract_owned_players(game_recap_body):
     doc = nlp(game_recap_body)
     player_names = {entity.text for entity in doc.ents if entity.label_ == "PERSON"}
-    return [f"{player} - {league.get_owner_for_player(player)}" for player in player_names if league.get_owner_for_player(player)]
+    return [
+        f"{player} - {league.get_owner_for_player(player)}"
+        for player in player_names
+        if league.get_owner_for_player(player)
+    ]
 
 
 def create_post_from_response(response):
     message = response["choices"][0]["message"]["content"]
-    lines = message.split('\n')
+    lines = message.split("\n")
     title = lines[0]
     slug = slugify(title)
-    message = '\n'.join(lines[1:])
+    message = "\n".join(lines[1:])
     html_message = markdown.markdown(message)
     user = CustomUser.objects.get(username="AI Writer")
-    post = Post(title=title, slug=slug, content=html_message, author=user, post_status="draft")
+    post = Post(
+        title=title, slug=slug, content=html_message, author=user, post_status="draft"
+    )
     post.save()
 
 
