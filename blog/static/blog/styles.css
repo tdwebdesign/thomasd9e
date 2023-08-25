@@ -1,0 +1,253 @@
+/* Basic CSS Reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+/* Define variables */
+:root {
+    --primary-color: rgba(40, 150, 80, 1);
+    --secondary-color: rgba(30, 120, 60, 1); /* A darker shade of the primary color */
+    --background-color: rgba(245, 245, 245, 1); /* A light gray for a clean background */
+    --link-color: rgba(40, 100, 180, 1); /* A contrasting blue for links */
+    --link-hover-color: rgba(20, 70, 140, 1); /* A darker shade of the link color */
+    --button-background: rgba(40, 150, 80, 1); /* Using the primary color for button background */
+    --button-text: rgba(255, 255, 255, 1); /* White text for readability on the green button */
+    --text-color: rgba(40, 40, 40, 1); /* A dark gray for text */
+}
+
+:root {
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 2rem;
+    --space-xl: 4rem;
+}
+
+/* base.html styles after reset */
+/* Font Families */
+body {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Font Sizes */
+html {
+    font-size: 16px;
+}
+
+h1 {
+    font-size: 2rem;
+}
+h2 {
+    font-size: 1.5rem;
+}
+
+p {
+    font-size: 1rem;
+}
+
+/* Font Weights */
+h1 {
+    font-weight: bold;
+}
+
+p {
+    font-weight: normal;
+}
+
+/* Line Heights */
+body {
+    line-height: 1.5;
+}
+
+/* Text Colors */
+body {
+    color: var(--text-color);
+}
+
+a {
+    color: var(--link-color);
+}
+
+a:hover {
+    color: var(--link-hover-color);
+}
+
+/* Nav Styles */
+.main-nav {
+    background-color: var(--background-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.nav-center {
+    display: flex;
+    align-items: center;
+}
+
+.nav-left,
+.nav-right,
+.nav-center {
+    margin: var(--space-md);
+}
+
+.create-post {
+    margin-left: var(--space-xs);
+}
+
+/* footer styles */
+footer {
+    background-color: var(--background-color);
+    padding: var(--space-md);
+    text-align: center;
+}
+
+/* post-list styles */
+.main-container {
+    display: flex; /* Enables Flexbox for the container */
+    width: 100%; /* Ensures the container takes up the full width of its parent */
+}
+
+.main-left {
+    flex: 0 0 60%; /* This means the div won't grow or shrink and will always occupy 60% of the parent's width */
+    padding: var(--space-md); /* Adds some space between the content of main-left and main-right */
+}
+
+.main-left h2 {
+    text-align: center;
+}
+
+.pagination {
+    text-align: center;
+}
+
+.main-right {
+    flex: 0 0 40%; /* This means the div won't grow or shrink and will always occupy 40% of the parent's width */
+    padding: var(--space-md); /* Adds some space between the content of main-left and main-right */
+    text-align: center;
+}
+
+.main-right table {
+    margin-left: auto;
+    margin-right: auto;
+}
+/* card styles */
+.card {
+    border-radius: 5px;
+    margin: var(--space-xs);
+    padding: var(--space-xs);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+.card:hover {
+    background-color: var(--background-color);
+}
+.card-title {
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.card-byline {
+    font-style: italic;
+    color: var(--text-color);
+}
+.card-link {
+    text-decoration: none;
+}
+
+/* Table Styling */
+table {
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+}
+
+th, td {
+    padding: 10px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: rgba(40, 150, 80, 1); /* Primary color */
+    color: white;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+@media (max-width: 900px) {
+    .main-container {
+        flex-direction: column;
+    }
+    .main-left,
+    .main-right {
+        flex: 0 0 100%;
+    }
+
+    .main-nav {
+        flex-direction: column; /* Change the direction to column to stack the children vertically */
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nav-link {
+        margin-bottom: var(--space-xs); /* Add some space below each link for separation */
+    }
+
+    .nav-left, .nav-right, .nav-center {
+        margin: var(--space-xs) 0; /* Adjust margin to add space between the nav sections */
+        flex: 0 0 100%; /* Make each nav section take the full width */
+    }
+    .nav-center .nav-link {
+        display: block; /* This will stack the links vertically */
+        width: 100%; /* This will make each link take the full width of its container */
+    }
+    
+}

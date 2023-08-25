@@ -1,10 +1,122 @@
 {% extends "blog/base.html" %}
 
 {% block content %}
-    <h1>All Posts</h1>
-    {% for post in posts %}
-        <h2><a href="{% url 'blog:post-detail' post.slug %}">{{ post.title }}</a></h2>
-        <p>By {{ post.author }} on {{ post.created_at }}</p>
-    {% endfor %}
-    <a href="{% url 'blog:post-create' %}">Create New Post</a>
+    <div class="main-container">
+        <div class="main-left">
+        <h2>Recent Posts</h2>
+        {% for post in posts %}
+        <a href="{% url 'blog:post-detail' post.slug %}" class="card-link">
+            <div class="card">
+                <p class="card-title">{{ post.title }}</p>
+                <p class="card-byline">By {{ post.author }} on {{ post.created_at }}</p>
+            </div>
+        </a>
+        {% endfor %}
+        <div class="pagination">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo; first</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+
+                <span class="current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">next</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+        </div>
+        <div class="main-right">
+            <h2>League Standings</h2>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Team</th>
+                        <th>W</th>
+                        <th>L</th>
+                        <th>T</th>
+                        <th>Pts</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Titans</td>
+                        <td>7</td>
+                        <td>2</td>
+                        <td>1</td>
+                        <td>2150</td>
+                    </tr>
+                    <tr>
+                        <td>Falcons</td>
+                        <td>7</td>
+                        <td>2</td>
+                        <td>1</td>
+                        <td>2180</td>
+                    </tr>
+                    <tr>
+                        <td>Dragons</td>
+                        <td>6</td>
+                        <td>3</td>
+                        <td>1</td>
+                        <td>2100</td>
+                    </tr>
+                    <tr>
+                        <td>Lions</td>
+                        <td>6</td>
+                        <td>3</td>
+                        <td>1</td>
+                        <td>2070</td>
+                    </tr>
+                    <tr>
+                        <td>Eagles</td>
+                        <td>6</td>
+                        <td>3</td>
+                        <td>1</td>
+                        <td>2130</td>
+                    </tr>
+                    <tr>
+                        <td>Warriors</td>
+                        <td>5</td>
+                        <td>4</td>
+                        <td>1</td>
+                        <td>2050</td>
+                    </tr>
+                    <tr>
+                        <td>Wolves</td>
+                        <td>5</td>
+                        <td>4</td>
+                        <td>1</td>
+                        <td>2020</td>
+                    </tr>
+                    <tr>
+                        <td>Sharks</td>
+                        <td>5</td>
+                        <td>4</td>
+                        <td>1</td>
+                        <td>2040</td>
+                    </tr>
+                    <tr>
+                        <td>Phoenix</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>1</td>
+                        <td>2000</td>
+                    </tr>
+                    <tr>
+                        <td>Hawks</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>1</td>
+                        <td>1980</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
 {% endblock %}
+

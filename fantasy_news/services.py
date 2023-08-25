@@ -4,8 +4,11 @@ import pandas as pd
 import os
 from django.conf import settings
 
+
 class FantasyLeague:
-    PLAYERS_FILE_PATH = os.path.join(settings.BASE_DIR, 'fantasy_news', 'static', 'fantasy_news', 'players.json')
+    PLAYERS_FILE_PATH = os.path.join(
+        settings.BASE_DIR, "fantasy_news", "static", "fantasy_news", "players.json"
+    )
 
     def __init__(self, league_id):
         self.league_id = league_id

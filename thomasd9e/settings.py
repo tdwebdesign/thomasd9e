@@ -185,9 +185,14 @@ MEDIA_URL = "https://storage.googleapis.com/{}/media/".format(GS_BUCKET_NAME)
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "website", "static"),
     os.path.join(BASE_DIR, "fantasy_news", "static"),
+    os.path.join(BASE_DIR, "blog", "static"),
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+
+if DEBUG:
+    STATIC_URL = "/static/"
+    STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
 
 CKEDITOR_BASEPATH = (
     "https://storage.googleapis.com/thomasd9e.appspot.com/ckeditor/ckeditor/"

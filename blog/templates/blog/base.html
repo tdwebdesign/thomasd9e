@@ -5,17 +5,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="{% static 'website/favicon.ico' %}" type="image/x-icon">
-    <title>Your Blog Title</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="{% static '/blog/styles.css' %}">
+    <title>Deli Digest</title>
 </head>
 <body>
-    <header>
-        <h1><a href="{% url 'blog:post-list' %}">Your Blog</a></h1>
+    <header class="site-header">
+        <nav class="main-nav">
+            <div class="nav-left">
+                <div class="site-brand">
+                    <a href="{% url 'blog:post-list' %}" class="nav-link">
+                        <i class="material-icons">home</i>
+                        <span class="link-text">Deli Digest</span>
+                    </a>
+                </div>
+            </div>
+                
+            <div class="nav-center">
+                <div class="create-post">
+                    <a href="{% url 'blog:post-create' %}" class="nav-link">
+                        <i class="material-icons">add_circle</i>
+                        <span class="link-text">Create a post</span>
+                    </a>
+                </div>
+            </div>
+                
+            <div class="nav-right">
+                <div class="user-actions">
+                    {% if user.is_authenticated %}
+                    <!-- If user is logged in -->
+                    <a href="{% url 'accounts:profile' %}" class="nav-link">
+                        <i class="material-icons">person</i>
+                        <span class="link-text">Profile</span>
+                    </a>                
+                    {% else %}
+                    <!-- If user is not logged in -->
+                    <a href="{% url 'accounts:login' %}" class="nav-link">
+                        <i class="material-icons">login</i>
+                        <span class="link-text">Login</span>
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
     </header>
-    <main>
+    <main class="main-content">
         {% block content %}
         {% endblock %}
     </main>
-    <footer>
+    <footer class="site-footer">
         <p>© 2023 Your Blog Name</p>
     </footer>
 </body>
