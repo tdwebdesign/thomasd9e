@@ -1,33 +1,100 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Skills - ThomasD9e{% endblock %}
 
-{% block content %}
-<section id="webApp">
-    <div>
-        <h2>Build Web Apps</h2>
-        <p>I have experience building web applications using Python and JavaScript, with frameworks such as Django and React. I am proficient in HTML and CSS, and have used Cloud services and CLI tools to deploy applications. Additionally, I have experience with source control, building backend and frontend components, writing APIs, and testing, as well as implementing Continuous Integration and Continuous Deployment (CI/CD) workflows.</p>
-    </div>
-</section>
-<section id="manageData">
-    <div>
-        <h2>Manage Data</h2>
-        <p>I have experience managing data, including data acquisition, cleaning, analysis, querying, modeling, and visualization. I am proficient in SQL, PostgreSQL, Big Query, and MySQL, as well as in Python tools such as Scrapy, Pandas, sklearn, matplotlib, and seaborn. I have experience in relational database design and have used UML to model data structures.</p>
-    </div>
-</section>
-<section id="leadTeam">
-    <div>
-        <h2>Lead a Team</h2>
-        <p>I have 10+ years of experience leading teams in production and operations, where I successfully managed diverse teams to distribute tens of millions of books to children in eastern North Carolina and Southern Virginia. I have extensive experience in guiding improvement projects, training employees, refining processes, coaching, mentoring, and promoting team members into greater roles. I am skilled in communication, project management, team building, and conflict resolution, and have completed Scholastic's Academy for Leadership Excellence program. In my transition to software, I have gained additional experience in different methodologies and achieved certifications in Project+, ITIL 4, and Certified Scrum Master.</p>
-    </div>
-</section>
-<section id="machineLearning">
-    <div>
-        <h2>Machine Learning</h2>
-        <p>I have a strong mathematical background that enables me to understand how machine learning algorithms work, and experience in getting and cleaning data, exploratory data analysis, feature engineering, model selection, hyperparameter tuning, and model evaluation. I am proficient in Python-based machine learning libraries such as Scikit-learn, TensorFlow, and Keras. I have experience with both supervised and unsupervised learning, and have applied machine learning techniques in natural language processing and computer vision applications.</p>
-    </div>
-</section>
+{% block head %}
+<link rel="stylesheet" href="{% static 'website/skills_styles.css' %}">
 {% endblock %}
+
+{% block content %}
+<div class="content">
+    <section class="web-app">
+        <h2 class="web-app-heading">Build Web Apps</h2>
+        <img class="web-app-image" src="{% static 'website/webapps.jpg' %}" alt="Web App">
+        <div class="web-app-description">
+            <p>Building web applications is my forte, utilizing a range of technologies and tools.</p>
+            <ul>
+                <li><strong>Core Technologies</strong>: Python, JavaScript, HTML, and CSS.</li>
+                <li><strong>Frameworks</strong>: Django and React.</li>
+                <li><strong>Deployment</strong>: Proficient with Cloud services and CLI tools.</li>
+                <li><strong>Development</strong>:
+                    <ul>
+                        <li>Source control</li>
+                        <li>Backend and frontend components</li>
+                        <li>API creation</li>
+                        <li>Testing</li>
+                    </ul>
+                </li>
+                <li><strong>Workflows</strong>: Implementation of CI/CD.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="manage-data">
+        <h2 class="manage-data-heading">Manage Data</h2>
+        <img class="manage-data-image" src="{% static 'website/managedata.jpg' %}" alt="Manage Data">
+        <div class="manage-data-description">
+            <p>Data management, from acquisition to visualization, is a key strength of mine.</p>
+            <ul>
+                <li><strong>Databases</strong>: SQL, PostgreSQL, Big Query, and MySQL.</li>
+                <li><strong>Python Tools</strong>: Scrapy, Pandas, sklearn, matplotlib, and seaborn.</li>
+                <li><strong>Design</strong>:
+                    <ul>
+                        <li>Expertise in relational database design and UML modeling.</li>
+                        <li>Creation of cloud based data pipelines</li>
+                    <ul>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="lead-team">
+        <h2 class="lead-team-heading">Lead a Team</h2>
+        <img class="lead-team-image" src="{% static 'website/leadateam.jpg' %}" alt="Lead a Team">
+        <div class="lead-team-description">
+            <p>With over a decade in leadership roles, I've successfully managed and mentored diverse teams.</p>
+            <ul>
+                <li><strong>Skills</strong>:
+                    <ul>
+                        <li>Guiding improvement projects</li>
+                        <li>Training and coaching</li>
+                        <li>Process refinement</li>
+                        <li>Conflict resolution</li>
+                    </ul>
+                </li>
+                <li><strong>Certifications</strong>: Project+, ITIL 4, and Certified Scrum Master.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="machine-learning">
+        <h2 class="machine-learning-heading">Machine Learning</h2>
+        <img class="mahcine-learning-image" src="{% static 'website/machinelearning.jpg' %}" alt="Machine Learning">
+        <div class="machine-learning-description">
+            <p>My strong mathematical foundation enables a deeper understanding of machine learning algorithms.</p>
+            <ul>
+                <li><strong>Python Libraries</strong>: Scikit-learn, TensorFlow, and Keras.</li>
+                <li><strong>Skills</strong>:
+                    <ul>
+                        <li>Getting and cleaning data</li>
+                        <li>Exporatory data analysis</li>
+                        <li>Feature engineering</li>
+                    </ul>
+                </li>
+                <li><strong>Techniques</strong>:
+                    <ul>
+                        <li>Supervised and unsupervised learning</li>
+                        <li>Natural language processing</li>
+                        <li>Computer vision applications</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </section>
+</div>
+{% endblock %}
+
 
 
         

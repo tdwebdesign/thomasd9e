@@ -1,0 +1,126 @@
+.content {
+    display: grid;
+    grid-area: content;
+    grid-template-areas:
+        "hero"
+        "skills"
+        "projects";
+}
+
+.hero {
+    background-image: url("https://storage.googleapis.com/thomasd9e.appspot.com/website/Laptop_left_side_desk.jpg");
+    background-size: cover;
+    background-position: center;
+    grid-area: hero;
+    height: calc(100vh - 24px); /* Adjust for the header */
+    display: grid;
+    grid-template-areas:
+        "hero-heading hero-heading"
+        ". hero-description"
+        ". hero-button";
+    grid-template-columns: 1fr 1fr; /* Adjust as needed */
+    color: var(--neutral-lightest);
+}
+
+.hero-heading {
+    grid-area: hero-heading;
+    text-align: center; /* Center the heading text */
+}
+
+.hero-description {
+    grid-area: hero-description;
+    justify-self: start; /* Left-align within its grid area */
+}
+
+.hero-button {
+    grid-area: hero-button;
+    justify-self: start; /* Left-align within its grid area */
+}
+
+
+.skills {
+    background-color: var(--neutral-lightest);
+    display: grid;
+    grid-area: skills;
+    place-items: center;
+}
+
+.projects {
+    background-color: var(--neutral-lighter);
+    display: grid;
+    grid-area: projects;
+    place-items: center;
+}
+
+.skills, .projects {
+    min-height: 26em;
+    padding: 0 var(--space-md);
+}
+
+@media (min-width: 768px) {
+    .skills {
+        grid-template-areas:
+            "skills-heading skills-heading"
+            "skills-image skills-description"
+            "skills-image skills-button";
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .skills-heading {
+        grid-area: skills-heading;
+        color: var(--success-dark);
+    }
+
+
+    .skills-image {
+        grid-area: skills-image;
+        justify-self: center; /* Center horizontally */
+        align-self: center;   /* Center vertically */
+    }
+    
+
+    .skills-description {
+        grid-area: skills-description;
+        width: 80%;
+    }
+
+    .skills-button {
+        grid-area: skills-button;
+        justify-self: center; /* Center horizontally */
+        align-self: center;   /* Center vertically */
+    }
+
+    .projects {
+        grid-template-areas:
+            "projects-heading projects-heading"
+            "projects-description projects-image"
+            "projects-button projects-image";
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .projects-heading {
+        grid-area: projects-heading;
+        color: var(--success-dark);
+    }
+
+    .projects-image {
+        grid-area: projects-image;
+        justify-self: center; /* Center horizontally */
+        align-self: center;   /* Center vertically */
+    }
+
+    .projects-description {
+        grid-area: projects-description;
+        width: 80%;
+    }
+
+    .projects-button {
+        grid-area: projects-button;
+        justify-self: center; /* Center horizontally */
+        align-self: center;   /* Center vertically */
+    }
+
+    .skills-description, .projects-description {
+        padding: var(--space-md);
+    }
+}    

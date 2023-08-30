@@ -1,0 +1,326 @@
+/* Site colors */
+:root {
+    /* Brand Color Palette */
+    --brand-lightest: rgb(193, 102, 183);
+    --brand-lighter: rgb(173, 72, 153);
+    --brand-light: rgb(153, 52, 143);
+    --brand: rgb(123, 32, 113);
+    --brand-dark: rgb(93, 12, 83);
+    --brand-darker: rgb(73, 2, 63);
+    --brand-darkest: rgb(53, 0, 43);
+
+    /* Success Color Palette */
+    --success-lightest: rgb(166, 253, 102);
+    --success-lighter: rgb(136, 243, 72);
+    --success-light: rgb(116, 233, 52);
+    --success: rgb(96, 223, 32);
+    --success-dark: rgb(66, 193, 12);
+    --success-darker: rgb(46, 173, 0);
+    --success-darkest: rgb(26, 153, 0);
+
+    /* Warning Color Palette */
+    --warning-lightest: rgb(255, 189, 97);
+    --warning-lighter: rgb(255, 169, 67);
+    --warning-light: rgb(255, 149, 47);
+    --warning: rgb(255, 114, 22);
+    --warning-dark: rgb(225, 84, 2);
+    --warning-darker: rgb(205, 64, 0);
+    --warning-darkest: rgb(185, 44, 0);
+
+    /* Danger Color Palette */
+    --danger-lightest: rgb(255, 101, 101);
+    --danger-lighter: rgb(255, 76, 76);
+    --danger-light: rgb(255, 46, 46);
+    --danger: rgb(235, 16, 16);
+    --danger-dark: rgb(205, 0, 0);
+    --danger-darker: rgb(185, 0, 0);
+    --danger-darkest: rgb(165, 0, 0);
+
+    /* Information Color Palette */
+    --info-lightest: rgb(101, 133, 192);
+    --info-lighter: rgb(76, 108, 172);
+    --info-light: rgb(56, 98, 157);
+    --info: rgb(31, 63, 122);
+    --info-dark: rgb(11, 43, 92);
+    --info-darker: rgb(1, 23, 72);
+    --info-darkest: rgb(0, 3, 52);
+
+    /* Neutral Color Palette */  background-size: cover;
+    --neutral-lightest: rgb(250, 250, 250);  
+    --neutral-lighter: rgb(230, 230, 230);   
+    --neutral-light: rgb(200, 200, 200);     
+    --neutral: rgb(150, 150, 150);           
+    --neutral-dark: rgb(90, 90, 90);
+    --neutral-darker: rgb(50, 50, 50);       
+    --neutral-darkest: rgb(20, 20, 20);    
+
+    /* Spacing */
+    --space-xs: 0.25em;  /* 4px for a base font size of 16px */
+    --space-sm: 0.5em;   /* 8px for a base font size of 16px */
+    --space-md: 1em;     /* 16px for a base font size of 16px */
+    --space-lg: 2em;     /* 32px for a base font size of 16px */
+    --space-xl: 4em;     /* 64px for a base font size of 16px */
+}
+
+/* Typography */
+html {
+    font-size: clamp(0.75rem, 2.6667vw, 1.5rem);
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+    font-size: 2rem; /* Example size */
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 1.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+h3 {
+    font-size: 1.50rem;
+}
+
+h4 {
+    font-size: 1.25rem;
+}
+
+h5 {
+    font-size: 1rem;
+}
+
+h6 {
+    font-size: 0.5rem;
+}
+
+i {
+    font-size: 1rem;
+    margin-right: var(--space-xs);
+}
+
+/* Layout */
+
+body {
+    margin: 0;
+    display: grid;
+    grid-template-areas:
+        "header"
+        "content"
+        "footer";
+}
+
+header {
+    grid-area: header;
+    /* Additional styling */
+}
+
+/* Navigation */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-sm) var(--space-md);
+    background-color: var(--neutral-darker);
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: var(--space-md);
+    flex-grow: 1; /* Allow the list to take up available space */
+}
+
+.nav-list a {
+    text-decoration: none;
+    color: var(--neutral-lightest);
+    padding: var(--space-xs) var(--space-sm);
+    transition: background-color 0.3s ease;
+}
+
+.nav-list a.active, 
+.nav-list a:hover {
+    background-color: var(--brand);
+    border-radius: 0.25em;
+}
+
+.nav-list li:last-child {
+    margin-left: auto; /* Push the last item (Profile/Login) to the right */
+}
+
+/* Messages */
+.message {
+    grid-area: messages;
+    padding: var(--space-sm) var(--space-md);
+    display: flex; /* Use flex display */
+    align-items: center;
+    justify-content: space-between; /* Align items and close icon to opposite ends */
+}
+
+.message.success {
+    background-color: var(--success);
+    color: var(--neutral-lightest);
+}
+
+.message.info {
+    background-color: var(--info);
+    color: var(--neutral-lightest);
+}
+
+.message.warning {
+    background-color: var(--warning);
+    color: var(--neutral-darkest);
+}
+
+.message.error {
+    background-color: var(--danger);
+    color: var(--neutral-lightest);
+}
+
+.close {
+    font-size: 1rem; /* Adjust the font size as needed */
+    color: var(--neutral-lightest);
+    cursor: pointer;
+    margin-left: var(--space-sm); /* Add spacing between message and close icon */
+    display: inline-block; /* Display the close icon inline */
+    vertical-align: middle; /* Vertically align the close icon */
+}
+
+img {
+    box-sizing: border-box;
+    border-radius: var(--space-md);
+    max-width: 80%;
+    height: auto;
+}
+
+section h1, section h2 {
+    text-align: center;
+}
+
+footer {
+    grid-area: footer;
+    background-color: var(--neutral-darker);
+    color: var(--neutral-lightest);
+    text-align: center;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+}
+
+
+/* Buttons */
+.button-container {
+    display: inline-block; /* Keep the containers inline */
+    margin-right: 10px; /* Add some spacing between buttons */
+}
+
+/* Base Button Styling */
+button.button,
+a.button {
+    width: 9em;
+    height: 3em;
+    padding: var(--space-sm) var(--space-md);
+    font-size: 1em;
+    border: none;
+    border-radius: 0.5em; /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition for hover effects */
+    display: flex; /* Use flexbox */
+    align-items: center; /* Vertically center items within the button */
+    justify-content: center; /* Horizontally center items within the button */
+    text-decoration: none; /* Remove underline from anchor links */
+}
+
+/* Brand Button */
+a.brand-button {
+    background-color: var(--brand);
+    color: var(--neutral-lightest); /* Assuming this is close to white for contrast */
+}
+
+a.brand-button:hover, a.brand-button:focus {
+    background-color: var(--brand-dark);
+    transform: scale(1.05);
+}
+
+/* Success Button */
+a.success-button {
+    background-color: var(--success);
+    color: var(--neutral-lightest);
+}
+
+a.success-button:hover, a.success-button:focus {
+    background-color: var(--success-dark);
+    transform: scale(1.05);
+}
+
+/* Warning Button */
+a.warning-button {
+    background-color: var(--warning);
+    color: var(--neutral-darkest); /* Assuming this is close to black for contrast */
+}
+
+a.warning-button:hover, a.warning-button:focus {
+    background-color: var(--warning-dark);
+    transform: scale(1.05);
+}
+
+/* Danger Button */
+a.danger-button {
+    background-color: var(--danger);
+    color: var(--neutral-lightest);
+}
+
+a.danger-button:hover, a.danger-button:focus {
+    background-color: var(--danger-dark);
+    transform: scale(1.05);
+}
+
+/* Info Button */
+a.info-button {
+    background-color: var(--info);
+    color: var(--neutral-lightest);
+}
+
+a.info-button:hover, a.info-button:focus {
+    background-color: var(--info-dark);
+    transform: scale(1.05);
+}
+
+/* Neutral Button */
+a.neutral-button {
+    background-color: var(--neutral);
+    color: var(--neutral-lightest);
+}
+
+a.neutral-button:hover, a.neutral-button:focus {
+    background-color: var(--neutral-dark);
+    transform: scale(1.05);
+}
+
+
+/* for the color palette */
+.color-group {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.color-box {
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 12px;
+    text-align: center;
+}
+

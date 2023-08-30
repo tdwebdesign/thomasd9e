@@ -1,44 +1,51 @@
 {% extends 'base.html' %}
-
 {% load static %}
 
 {% block title %}Contact - ThomasD9e{% endblock %}
 
-{% block content %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'website/contact_styles.css' %}">
+{% endblock %}
 
-<div class="contact-container">
-    <!-- Left Column -->
-    <div class="left-column">
-        <form action="/contact/" method="post">
-            {% csrf_token %}
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" placeholder="John Doe">
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="john.doe@example.com">
-            </div>
-            <div class="form-group">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" placeholder="Your message here..."></textarea>
-            </div>
-            <button type="submit">Submit</button>
-        </form>
+{% block content %}
+<div class="content">
+    <!-- Heading -->
+    <div class="heading">
+        <h1>Let's Work Together!</h1>
+    </div>
+
+    <!-- Description -->
+    <div class="description">
+        <p>I'm open for contract or permanent positions. I'm also available to discuss projects and provide quotes. Reach out to me and let's get started!</p>
         <div class="contact-info">
             <p><strong>Phone:</strong> 919-961-4276</p>
             <p><strong>Email:</strong> tdwebdesignmsu@yahoo.com</p>
             <a href="https://www.linkedin.com/in/thomas-deblaquiere-794979120/" target="_blank" rel="noopener noreferrer">
-                <img src="{% static 'website/LinkedIn_logo.png' %}" alt="LinkedIn Logo" width="30" height="30">
+                <img src="{% static 'website/LinkedIn_logo.png' %}" alt="LinkedIn Logo" width="50" height="50">
             </a>
         </div>
     </div>
 
-    <!-- Right Column -->
-    <div class="right-column">
-        <h2>Let's Work Together!</h2>
-        <p>I'm open for contract or permanent positions. I'm also available to discuss projects and provide quotes. Reach out to me and let's get started!</p>
-    </div>
+    <!-- Form -->
+    <form action="/contact/" method="post"> <!-- Replace with your form processing URL and method -->
+    {% csrf_token %}
+        <div class="form-field">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required>
+        </div>
+
+        <div class="form-field">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Your email" required>
+        </div>
+
+        <div class="form-field">
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="6" placeholder="Your message" required></textarea>
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
 </div>
 
 {% endblock %}

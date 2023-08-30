@@ -1,0 +1,88 @@
+.content {
+    display: grid;
+    grid-area: content;
+    grid-template-areas:
+        "cfb-assistant"
+        "deli-digest";
+}
+
+.cfb-assistant {
+    grid-area: cfb-assistant;
+    background-color: var(--neutral-lightest);
+    display: grid;
+    place-items: center;
+}
+
+.deli-digest {
+    grid-area: deli-digest;
+    background-color: var(--neutral-lighter);
+    display: grid;
+    place-items: center;
+}
+
+.cfb-assistant, .deli-digest {
+    min-height: 26em;
+    padding: 0 var(--space-md);
+}
+
+@media (min-width: 768px) {
+    .cfb-assistant {
+        grid-template-areas:
+            "cfb-assistant-heading cfb-assistant-heading"
+            "cfb-assistant-image cfb-assistant-description"
+            "cfb-assistant-buttons cfb-assistant-buttons";
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .cfb-assistant-heading {
+        grid-area: cfb-assistant-heading;
+        color: var(--success-dark);
+    }
+
+    .cfb-assistant-image {
+        grid-area: cfb-assistant-image;
+        justify-self: center; /* Center horizontally */
+        align-self: center;   /* Center vertically */
+    }
+    
+    .cfb-assistant-description {
+        grid-area: cfb-assistant-description;
+        width: 80%;
+    }
+    .cfb-assistant-buttons {
+        grid-area: cfb-assistant-buttons;
+        justify-self: center; /* Center horizontally */
+        align-self: center;   /* Center vertically */
+    }
+
+    .deli-digest {
+        grid-template-areas:
+            "deli-digest-heading deli-digest-heading"
+            "deli-digest-description deli-digest-image"
+            "deli-digest-buttons deli-digest-buttons";
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .deli-digest-heading {
+        grid-area: deli-digest-heading;
+        color: var(--brand-dark);
+    }
+
+    .deli-digest-image {
+        grid-area: deli-digest-image;
+        justify-self: center; /* Center horizontally */
+        align-self: center;   /* Center vertically */
+    }
+
+    .deli-digest-description {
+        grid-area: deli-digest-description;
+        width: 80%;
+    }
+
+    .deli-digest-buttons {
+        grid-area: deli-digest-buttons;
+        justify-self: center; /* Center horizontally */
+        align-self: center;   /* Center vertically */
+    }
+
+}

@@ -4,57 +4,45 @@
     {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static '/website/styles.css' %}">
     <link rel="icon" href="{% static 'website/favicon.ico' %}" type="image/x-icon">
-    <link rel="stylesheet" href="{% static 'website/index.css' %}">
-    <title>{% block title %}Your Website Title{% endblock %}</title>
+    {% block head %}{% endblock %}
+    <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
     <header>
         <nav class="navbar">
-            <div class="navbar-left">
-                <a href="{% url 'index' %}" class="navbar-link">Home</a>
-            </div>
-            <div class="navbar-center">
-                <a href="{% url 'skills' %}" class="navbar-link">Skills</a>
-                <a href="{% url 'projects' %}" class="navbar-link">Projects</a>
-                <a href="{% url 'contact' %}" class="navbar-link">Contact</a>
-            </div>
-            <div class="navbar-right">
-                {% if user.is_authenticated %}
-                    <a href="{% url 'accounts:profile' %}" class="navbar-link">Profile</a>
-                {% else %}
-                    <a href="{% url 'accounts:login' %}" class="navbar-link">Login</a>
-                {% endif %}
-            </div>
+            <ul class="nav-list" id="navList">
+                <li><a href="{% url 'index' %}" class="{% if request.path == '/' %}active{% endif %}">Home</a></li>
+                <li><a href="{% url 'skills' %}" class="{% if 'skills' in request.path %}active{% endif %}">Skills</a></li>
+                <li><a href="{% url 'projects' %}" class="{% if 'projects' in request.path %}active{% endif %}">Projects</a></li>
+                <li><a href="{% url 'contact' %}" class="{% if 'contact' in request.path %}active{% endif %}">Contact</a></li>
+                <li>
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'accounts:profile' %}" class="{% if 'profile' in request.path %}active{% endif %}">Profile</a>
+                    {% else %}
+                        <a href="{% url 'accounts:login' %}" class="{% if 'login' in request.path %}active{% endif %}">Login</a>
+                    {% endif %}
+                </li>
+            </ul>
         </nav>
     </header>
-
-    <main {% if not messages %}class="no-messages"{% endif %}>
-        <!-- Messages Block -->
-        {% if messages %}
-        <div class="messages-container">
-            {% for message in messages %}
-            <div {% if message.tags %}class="message {{ message.tags }}"{% endif %}>
-                {{ message }}
-            </div>
-            {% endfor %}
+    <main>
+    {% for message in messages %}
+        <div class="message {{ message.tags }}">
+            {{ message }}
+            <span class="close" onclick="this.parentElement.style.display='none';">&times;</span>
         </div>
-        {% endif %}
+    {% endfor %}
 
-        {% block content %}{% endblock %}
+    {% block content %}
+    {% endblock %}
     </main>
-
     <footer>
-        <div id="footer-content">
-            <div class="footer-left">
-                <a href="https://github.com/tdwebdesign/thomasd9e" class="footer-link">Github</a>
-            </div>
-            <div class="footer-center">
-                <p>© 2023 ThomasD9e.com</p>
-            </div>
-            <div class="footer-right">
-                <a href="https://storage.googleapis.com/thomasd9e.appspot.com/resume.pdf" class="footer-link">Resume</a>
-            </div>
+        <div class="footer-container">
+            <p>&copy; 2023 ThomasDe.com. All rights reserved.</p>
         </div>
     </footer>
 </body>

@@ -1,0 +1,140 @@
+.content {
+    display: grid;
+    grid-area: content;
+    grid-template-areas:
+        "web-app"
+        "manage-data"
+        "lead-team"
+        "machine-learning";
+}
+
+.web-app {
+    grid-area: web-app;
+    background-color: var(--neutral-lightest);
+    display: grid;
+    place-items: center;
+}
+
+.manage-data {
+    grid-area: manage-data;
+    background-color: var(--neutral-lighter);
+    display: grid;
+    place-items: center;
+}
+
+.lead-team {
+    grid-area: lead-team;
+    background-color: var(--neutral-lightest);
+    display: grid;
+    place-items: center;
+}
+
+.machine-learning {
+    grid-area: machine-learning;
+    background-color: var(--neutral-lighter);
+    display: grid;
+    place-items: center;
+}
+
+.web-app, .manage-data, .lead-team, .machine-learning {
+    min-height: 26em;
+    padding: 0 var(--space-md);
+}
+
+@media (min-width: 768px) {
+    .web-app {
+        grid-template-areas:
+            "web-app-heading web-app-heading"
+            "web-app-image web-app-description";
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .web-app-heading {
+        grid-area: web-app-heading;
+        color: var(--success-dark);
+    }
+
+    .web-app-image {
+        grid-area: web-app-image;
+        justify-self: center; /* Center horizontally */
+        align-self: center;   /* Center vertically */
+    }
+    
+    .web-app-description {
+        grid-area: web-app-description;
+        width: 80%;
+    }
+
+    .manage-data {
+        grid-template-areas:
+            "manage-data-heading manage-data-heading"
+            "manage-data-description manage-data-image";
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .manage-data-heading {
+        grid-area: manage-data-heading;
+        color: var(--brand-dark);
+    }
+
+    .manage-data-image {
+        grid-area: manage-data-image;
+        justify-self: center; /* Center horizontally */
+        align-self: center;   /* Center vertically */
+    }
+    
+    .manage-data-description {
+        grid-area: manage-data-description;
+        width: 80%;
+    }
+
+    .lead-team {
+        grid-template-areas:
+            "lead-team-heading lead-team-heading"
+            "lead-team-image lead-team-description";
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .lead-team-heading {
+        grid-area: lead-team-heading;
+        color: var(--success-dark);
+    }
+
+    .lead-team-image {
+        grid-area: lead-team-image;
+        justify-self: center; /* Center horizontally */
+        align-self: center;   /* Center vertically */
+    }
+    
+    .lead-team-description {
+        grid-area: lead-team-description;
+        width: 80%;
+    }
+
+    .machine-learning {
+        grid-template-areas:
+            "machine-learning-heading machine-learning-heading"
+            "machine-learning-image machine-learning-description";
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .machine-learning-heading {
+        grid-area: machine-learning-heading;
+        color: var(--brand-dark);
+    }
+
+    .machine-learning-image {
+        grid-area: machine-learning-image;
+        justify-self: center; /* Center horizontally */
+        align-self: center;   /* Center vertically */
+    }
+
+    .machine-learning-description {
+        grid-area: machine-learning-description;
+        width: 80%;
+    }
+
+    .web-app-description, .manage-data-description, .lead-team-description, .machine-learning-description {
+        padding: var(--space-md);
+    }
+}    
