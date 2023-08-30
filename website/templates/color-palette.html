@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="{% static '/website/styles.css' %}">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="#">Blog</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="color-group">
+            <div class="color-box" style="background-color: var(--brand-lightest);">Brand Lightest</div>
+            <div class="color-box" style="background-color: var(--brand-lighter);">Brand Lighter</div>
+            <div class="color-box" style="background-color: var(--brand-light);">Brand Light</div>
+            <div class="color-box" style="background-color: var(--brand);">Brand</div>
+            <div class="color-box" style="background-color: var(--brand-dark);">Brand Dark</div>
+            <div class="color-box" style="background-color: var(--brand-darker);">Brand Darker</div>
+            <div class="color-box" style="background-color: var(--brand-darkest);">Brand Darkest</div>
+        </div>
+        <div class="color-group">
+            <div class="color-box" style="background-color: var(--success-lightest);">Success Lightest</div>
+            <div class="color-box" style="background-color: var(--success-lighter);">Success Lighter</div>
+            <div class="color-box" style="background-color: var(--success-light);">Success Light</div>
+            <div class="color-box" style="background-color: var(--success);">Success</div>
+            <div class="color-box" style="background-color: var(--success-dark);">Success Dark</div>
+            <div class="color-box" style="background-color: var(--success-darker);">Success Darker</div>
+            <div class="color-box" style="background-color: var(--success-darkest);">Success Darkest</div>
+        </div>
+        <div class="color-group">
+            <div class="color-box" style="background-color: var(--warning-lightest);">Warning Lightest</div>
+            <div class="color-box" style="background-color: var(--warning-lighter);">Warning Lighter</div>
+            <div class="color-box" style="background-color: var(--warning-light);">Warning Light</div>
+            <div class="color-box" style="background-color: var(--warning);">Warning</div>
+            <div class="color-box" style="background-color: var(--warning-dark);">Warning Dark</div>
+            <div class="color-box" style="background-color: var(--warning-darker);">Warning Darker</div>
+            <div class="color-box" style="background-color: var(--warning-darkest);">Warning Darkest</div>
+        </div>
+        <div class="color-group">
+            <div class="color-box" style="background-color: var(--danger-lightest);">Danger Lightest</div>
+            <div class="color-box" style="background-color: var(--danger-lighter);">Danger Lighter</div>
+            <div class="color-box" style="background-color: var(--danger-light);">Danger Light</div>
+            <div class="color-box" style="background-color: var(--danger);">Danger</div>
+            <div class="color-box" style="background-color: var(--danger-dark);">Danger Dark</div>
+            <div class="color-box" style="background-color: var(--danger-darker);">Danger Darker</div>
+            <div class="color-box" style="background-color: var(--danger-darkest);">Danger Darkest</div>
+        </div>
+        <div class="color-group">
+            <div class="color-box" style="background-color: var(--info-lightest);">Info Lightest</div>
+            <div class="color-box" style="background-color: var(--info-lighter);">Info Lighter</div>
+            <div class="color-box" style="background-color: var(--info-light);">Info Light</div>
+            <div class="color-box" style="background-color: var(--info);">Info</div>
+            <div class="color-box" style="background-color: var(--info-dark);">Info Dark</div>
+            <div class="color-box" style="background-color: var(--info-darker);">Info Darker</div>
+            <div class="color-box" style="background-color: var(--info-darkest);">Info Darkest</div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p>Blog &copy; 2020</p>
+        </div>
+    </footer>

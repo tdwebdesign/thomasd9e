@@ -23,6 +23,10 @@ DF = pd.read_csv(
 DF["embedding"] = DF["embedding"].apply(ast.literal_eval)
 
 
+def color_palette(request):
+    return render(request, "color-palette.html")
+
+
 def index(request):
     return render(request, "index.html")
 
@@ -75,7 +79,7 @@ def process_question(request):
         return HttpResponse("This endpoint only accepts POST requests.")
 
 
-@login_required
+# @login_required removed until formating of accounts app finished
 def cfb_assistant(request):
     return render(request, "cfb_assistant.html")
 
