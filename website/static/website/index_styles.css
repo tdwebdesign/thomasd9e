@@ -69,7 +69,7 @@
 
     .skills-heading {
         grid-area: skills-heading;
-        color: var(--success-dark);
+        color: var(--success-darkest);
     }
 
 
@@ -101,7 +101,7 @@
 
     .projects-heading {
         grid-area: projects-heading;
-        color: var(--success-dark);
+        color: var(--success-darkest);
     }
 
     .projects-image {
