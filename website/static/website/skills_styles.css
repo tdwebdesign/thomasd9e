@@ -38,7 +38,7 @@
 
 .web-app, .manage-data, .lead-team, .machine-learning {
     min-height: 26em;
-    padding: 0 var(--space-md);
+    padding: var(--space-md);
 }
 
 @media (min-width: 768px) {

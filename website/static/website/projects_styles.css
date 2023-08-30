@@ -22,7 +22,7 @@
 
 .cfb-assistant, .deli-digest {
     min-height: 26em;
-    padding: 0 var(--space-md);
+    padding: var(--space-md);
 }
 
 @media (min-width: 768px) {
