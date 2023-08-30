@@ -1,33 +1,45 @@
 {% extends "base.html" %}
 
+{% load static %}
+
 {% block title %}Login - ThomasD9e{% endblock %}
 
+{% block head %}
+    <link rel="stylesheet" href="{% static 'accounts/styles.css' %}">
+{% endblock %}
+
 {% block content %}
-<div class="accounts-main">
+<div class="content">
     {% if form.non_field_errors %}
         <div class="error">
             {{ form.non_field_errors }}
         </div>
     {% endif %}
+    <div class="heading">
+        <h1>Login</h1> 
+    </div>
+    <div class="description">
+        <p>Enter your email and password to login.</p>
+        <p>Don't have an account? <a href="{% url 'accounts:register' %}">Register</a></p>
+        <p><a href="{% url 'accounts:password_reset' %}">Forgot password?</a></p>
+    </div>
     
     <form method="post" id="loginForm">
         {% csrf_token %}
         
         <label for="username">Email:</label>
-        <input type="email" name="username" id="username" required>
+        <input type="email" name="username" id="username" placeholder="Username" required>
         {% if form.username.errors %}
             <span class="error">{{ form.username.errors.as_text }}</span>
         {% endif %}
         
         <label for="password">Password:</label>
-        <input type="password" name="password" id="password" required>
+        <input type="password" name="password" id="password" placeholder="Password" required>
         {% if form.password.errors %}
             <span class="error">{{ form.password.errors.as_text }}</span>
         {% endif %}
         
         <input type="submit" value="Login" class="submitBtn">
     </form>
-    <p>Don't have an account? <a href="{% url 'accounts:register' %}">Register</a></p>
-    <p><a href="{% url 'accounts:password_reset' %}">Forgot password?</a></p>
 </div>
 {% endblock %}

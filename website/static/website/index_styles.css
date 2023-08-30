@@ -8,6 +8,7 @@
 }
 
 .hero {
+    background-color: var(--neutral-darkest);
     background-image: url("https://storage.googleapis.com/thomasd9e.appspot.com/website/Laptop_left_side_desk.jpg");
     background-size: cover;
     background-position: center;

@@ -99,11 +99,6 @@ h6 {
     font-size: 0.5rem;
 }
 
-i {
-    font-size: 1rem;
-    margin-right: var(--space-xs);
-}
-
 /* Layout */
 
 body {
@@ -303,6 +298,59 @@ a.neutral-button {
 a.neutral-button:hover, a.neutral-button:focus {
     background-color: var(--neutral-dark);
     transform: scale(1.05);
+}
+
+/* Form styling */
+form {
+    background-color: var(--brand-lightest);
+    padding: var(--space-md);
+    border-radius: var(--space-xs);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: var(--space-xs);
+    color: var(--brand-darkest);
+}
+
+input, textarea {
+    width: 100%;
+    padding: var(--space-xs);
+    margin-bottom: var(--space-md);
+    border: 2px solid var(--brand-light);
+    border-radius: var(--space-md);
+    background-color: var(--neutral-lightest);
+    color: var(--brand-darker);
+}
+
+input:focus, textarea:focus {
+    border-color: var(--success);
+    outline: none;
+}
+
+/* Validation feedback */
+input:invalid:not(:placeholder-shown), 
+textarea:invalid:not(:placeholder-shown) {
+    border-color: var(--danger);
+}
+
+
+/* Submit button styles */
+button[type="submit"] {
+    display: block;
+    margin: 0 auto;
+    padding: var(--space-xs) var(--space-md);
+    background-color: var(--brand);
+    color: white;
+    border: none;
+    border-radius: var(--space-md);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: var(--brand-dark);
 }
 
 

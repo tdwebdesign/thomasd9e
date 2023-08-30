@@ -1,4 +1,3 @@
-/* Base styles */
 .content {
     display: grid;
     grid-template-areas:
@@ -25,7 +24,6 @@ form {
     color: var(--brand-darker);
     text-align: center;
 }
-
 
 /* Responsive styles */
 @media (min-width: 768px) {
